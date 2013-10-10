@@ -36,11 +36,10 @@ module Drupal
     private
 
       def menu_links(name)
-        Drupal::MenuLink.find(:all,
-          :joins => :menu_router,
-          :conditions => ["menu_name = ? AND hidden = 0 AND #{Drupal::MenuRouter.table_name}.access_callback <> 'user_is_anonymous'", name],
-          :order => "weight",
-          :readonly => true)
+        Drupal::MenuLink.
+          joins(:menu_router).
+          where(["menu_name = ? AND hidden = 0 AND #{Drupal::MenuRouter.table_name}.access_callback <> 'user_is_anonymous'", name]).
+          order("weight")
       end
   end
 end

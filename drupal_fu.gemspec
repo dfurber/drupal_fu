@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "drupal_fu"
-  s.version  = "1.0.2"
+  s.version  = "1.0.3"
   s.date     = "2013-10-09"
   s.summary  = "Ruby on Rails Models and Helpers for integrating with Drupal."
   s.email    = "furberd@gmail.com"

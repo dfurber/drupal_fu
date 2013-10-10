@@ -1,10 +1,9 @@
 module Drupal
   class User < Base
-    set_primary_key "uid"
+    self.primary_key = "uid"
 
     has_many :sessions, :foreign_key => "sid", :class_name => "Drupal::Session"
     has_and_belongs_to_many :profile_fields, :class_name => "Drupal::ProfileField", :join_table => "profile_values", :foreign_key => "uid", :association_foreign_key => "fid"
-    has_many :openids, :foreign_key => "uid", :class_name => "Drupal::Authmap", :conditions => { :module => "openid" }
     serializes "data"
 
     # Authenticate a user given a name and password. For example:
@@ -15,7 +14,7 @@ module Drupal
     #     # Could be an invalid user/password combo or the user might be blocked
     #   end
     def self.authenticate(name, password)
-      find_by_name_and_pass_and_status(name, Digest::MD5.hexdigest(password), 1)
+      where(:name => name, :status => 1, :password => Digest::MD5.hexdigest(password)).first
     end
 
     # Returns true if the user is allowed to login.

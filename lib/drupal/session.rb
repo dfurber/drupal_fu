@@ -1,10 +1,10 @@
 module Drupal
   class Session < Base
-    set_primary_key "sid"
+    self.primary_key = "sid"
     belongs_to :user, :foreign_key => "uid", :class_name => "Drupal::User"
 
     def self.authenticate(sid)
-      find(:first, :conditions => ["#{table_name}.sid = ? AND #{User.table_name}.status = 1", sid], :include => :user)
+      where(:sid => sid, :status => 1).includes(:user).first
     end
 
     def session
