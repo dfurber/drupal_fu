@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name     = "drupal_fu"
-  s.version  = "1.0.1"
-  s.date     = "2009-01-12"
+  s.version  = "1.0.2"
+  s.date     = "2013-10-09"
   s.summary  = "Ruby on Rails Models and Helpers for integrating with Drupal."
   s.email    = "furberd@gmail.com"
   s.homepage = "http://github.com/dfurber/drupal_fu"
   s.description = "Ruby on Rails Models and Helpers for integrating with Drupal."
   s.has_rdoc = true
-  s.authors  = ["Simon Harris"]
+  s.authors  = ["Simon Harris", "David Furber"]
   s.files    = ["CHANGELOG.rdoc",
                 "MIT-LICENSE",
                 "README.rdoc",
