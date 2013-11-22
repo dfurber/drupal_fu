@@ -5,7 +5,7 @@ module Drupal
     serializes "value"
 
     def self.value_of(name)
-      if variable = where(:name => name)
+      if variable = where(:name => name).first
         variable.value
       end
     end
